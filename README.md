@@ -4,7 +4,18 @@
 
 ### W jaki sposób wygląda hierarchia interfejsów związana z kolekcjami?
 
-Miejsce na odpowiedź
+Nadrzędnym interfejsem jest interfejs Collection. Jest podstawowym interfejsem, ma najmniej metod i są to metody generyczne.
+Pochodnymi są: 
+* List
+* Set
+    * pochodną jest SortedSet
+* Queue
+* Deque
+
+Obok hierarchii jest:
+* Map
+    * SortedMap (pochodna Map)
+
 
 ### Jakie są podstawowe implementacje poszczególnych interfejsów?
 
