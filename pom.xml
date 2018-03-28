@@ -2,12 +2,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pl.dominisz</groupId>
-    <artifactId>java8desktop</artifactId>
+    <groupId>pl.agnieszka</groupId>
+    <artifactId>collections</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>java8desktop</name>
+    <name>collections</name>
     <description>Maven project for Java 8 desktop application with Lombok and JUnit dependencies</description>
     <url>https://github.com/dominisz/java8desktop</url>
 

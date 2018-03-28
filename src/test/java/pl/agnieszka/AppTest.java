@@ -1,4 +1,4 @@
-package pl.dominisz.java8desktop;
+package pl.agnieszka;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
