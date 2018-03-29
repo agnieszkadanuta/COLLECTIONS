@@ -62,6 +62,18 @@ chodzi o to, by złożonośc logarytmiczna była jak najmniej złożona
 
 * Napisać aplikację wykorzystującą różne implementacje List i sprawdzić różnice w operacjach dodawania na początek listy, usuwania z początku listy, przeglądania całej listy
 
+* Wyniki:
+* array list:
+    * addElementsToFront: 5449 miliseconds
+    * addElementsToBack: 14 miliseconds
+    * iterateList: 9 miliseconds
+    * iterateListForEach: 10 miliseconds
+
+* linked list:
+    * addElementsToFront: 14 miliseconds
+    * addElementsToBack: 13 miliseconds
+    * iterateList: 173924 miliseconds
+    * iterateListForEach: 28 miliseconds
 
 ### Do których kolekcji można wstawiać wartości null?
 

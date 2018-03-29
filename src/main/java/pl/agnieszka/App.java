@@ -35,6 +35,34 @@ public class App {
         System.out.println("addElementsToBack: " + (endTime - startTime) + " miliseconds");
     }
 
+    public static void addNrandomElementsToBack(){}
+
+    public static void iterateList(List<Integer> list){
+        long startTime = System.currentTimeMillis();
+
+        for(int i = 0 ; i < list.size(); i++){
+            Integer element = list.get(i);
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("iterateList: " + (endTime - startTime) + " miliseconds");
+    }
+
+    public static void iterateListForEach(List<Integer> list){
+        long startTime = System.currentTimeMillis();
+
+        for (Integer integer: list) {
+            Integer element = integer;
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("iterateListForEach: " + (endTime - startTime) + " miliseconds");
+    }
+
+    public static void deleteElementsFromFront(List<Integer> list){
+
+    }
+
     public static void main(String[] args) {
 
         int count = 200000;
@@ -50,11 +78,15 @@ public class App {
         //dodać N losowych elementów na koniec listy
         //dodać N losowych elementów na początek listy
         //przejrzeć całą listę
+        iterateList(arraylist);
+        iterateListForEach(arraylist);
+
         //usunąc wszystkie elmenty z listy poprzez usuwanie pierwszego elementu listy
 
         //dla LinkedList
         //utworzyć nową listę
 
+        System.out.println();
         List<Integer> linkedList = new LinkedList<>();
         System.out.println("linked list");
         addElementsToFront(linkedList, count);
@@ -62,6 +94,8 @@ public class App {
         //dodać N losowych elementów na koniec listy
         //dodać N losowych elementów na początek listy
         //przejrzeć całą listę
+        iterateList(linkedList);
+        iterateListForEach(linkedList);
         //usunąc wszystkie elmenty z listy poprzez usuwanie pierwszego elementu listy
 
         //sprawdzić, któ®e implementacje są dłuższe, należy zmierzyć czas każdej z operacji używając
