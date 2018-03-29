@@ -32,16 +32,16 @@ public class App {
 
     public static void addElementsToFront(List<Integer> list, int count){
 
-        measureTimeForOperation(list, count, new ListFiller(), "addElementsToFront: ");
+        measureTimeForOperation(list, count, (list1, count1) -> {
+            for (int i = 0; i < count1; i++) {
+                list1.add(0);
+            }
+        }, "addElementsToFront: ");
     }
 
     public static void addElementsToBack(List<Integer> list, int count) {
 
-        measureTimeForOperation(list, count, (list1, count1) -> {
-            for (int i = 0; i < count1; i++) {
-                list1.add(i);
-            }
-        }, "addElementsToBack: ");
+        measureTimeForOperation(list, count, new ListFiller(), "addElementsToBack: ");
     }
 
 
