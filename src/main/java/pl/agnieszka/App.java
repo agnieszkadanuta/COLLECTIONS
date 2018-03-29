@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Consumer;
 
 /**
  * http://dominisz.pl
@@ -12,6 +13,13 @@ import java.util.Random;
 public class App {
 
     private static Random r = new Random();
+
+    public static void measureTimeForOperation(List<Integer> list, Consumer<List<Integer>> operation, String description){
+        long startTime = System.currentTimeMillis();
+        operation.accept(list);
+        long endTime = System.currentTimeMillis();
+        System.out.println(description + (endTime - startTime) + " miliseconds");
+    }
 
     public static void addElementsToFront(List<Integer> list, int count){
 
@@ -35,32 +43,28 @@ public class App {
         System.out.println("addElementsToBack: " + (endTime - startTime) + " miliseconds");
     }
 
-    public static void addNrandomElementsToBack(){}
-
+    //użycie pętli for oraz wywołanie metody liczącej czas wykonania operacji;
+    //metoda ma za parametr interfejs Consumera - powstaje klasa anonimowa
     public static void iterateList(List<Integer> list){
-        long startTime = System.currentTimeMillis();
-
-        for(int i = 0 ; i < list.size(); i++){
-            Integer element = list.get(i);
-        }
-
-        long endTime = System.currentTimeMillis();
-        System.out.println("iterateList: " + (endTime - startTime) + " miliseconds");
+        measureTimeForOperation(list, new Consumer<List<Integer>>() {
+            @Override
+            public void accept(List<Integer> integers) {
+                for(int i = 0; i < list.size(); i++ ){
+                    Integer element = list.get(i);
+                }
+            }
+        },"iterateList: ");
     }
 
+    //użycie pętli foreach przy pomocy klasy implmentującej Consumera
     public static void iterateListForEach(List<Integer> list){
-        long startTime = System.currentTimeMillis();
-
-        for (Integer integer: list) {
-            Integer element = integer;
-        }
-
-        long endTime = System.currentTimeMillis();
-        System.out.println("iterateListForEach: " + (endTime - startTime) + " miliseconds");
+       measureTimeForOperation(list, new ForEachOperator(), "iterate list for each: ");
     }
 
+    //wykorzystanie Consumera poprzez wyrażenie lambda
     public static void deleteElementsFromFront(List<Integer> list){
-
+        measureTimeForOperation(list, list1 -> { while(!list.isEmpty()){list.remove(0);}
+        }, "deleteElementsFromFront: ");
     }
 
     public static void main(String[] args) {
@@ -80,8 +84,8 @@ public class App {
         //przejrzeć całą listę
         iterateList(arraylist);
         iterateListForEach(arraylist);
-
-        //usunąc wszystkie elmenty z listy poprzez usuwanie pierwszego elementu listy
+        //usunąc wszystkie elementy z listy poprzez usuwanie pierwszego elementu listy
+        deleteElementsFromFront(arraylist);
 
         //dla LinkedList
         //utworzyć nową listę
@@ -94,9 +98,10 @@ public class App {
         //dodać N losowych elementów na koniec listy
         //dodać N losowych elementów na początek listy
         //przejrzeć całą listę
-        iterateList(linkedList);
+       // iterateList(linkedList);
         iterateListForEach(linkedList);
-        //usunąc wszystkie elmenty z listy poprzez usuwanie pierwszego elementu listy
+        //usunąc wszystkie elementy z listy poprzez usuwanie pierwszego elementu listy
+        deleteElementsFromFront(linkedList);
 
         //sprawdzić, któ®e implementacje są dłuższe, należy zmierzyć czas każdej z operacji używając
         //metody currentimemillis klasy System

@@ -54,9 +54,9 @@ Kolekcje, które przechowują elementy w sposób posortowany:
 * TreeMap - posortowane po kluczu
 * LinkedHashMap - przechowuje elementy w kolejności wstawienia kluczy
 
->offtop: drzewo czerwono-czarne -> rodzaj drzewa, które dba o swoją strukturę, aby nie stało się listą;
+*offtop: drzewo czerwono-czarne -> rodzaj drzewa, które dba o swoją strukturę, aby nie stało się listą;
 sprawia, że drzewo układa się tak, by było jak najniższe (czyli jak najbardziej optymalne) na pomocą obrotów.
-chodzi o to, by złożonośc logarytmiczna była jak najmniej złożona
+chodzi o to, by złożonośc logarytmiczna była jak najmniej złożona*
 
 ### Implementacje interfejsu List – złożoność operacji
 
@@ -68,12 +68,14 @@ chodzi o to, by złożonośc logarytmiczna była jak najmniej złożona
     * addElementsToBack: 14 miliseconds
     * iterateList: 9 miliseconds
     * iterateListForEach: 10 miliseconds
+    * deleteElementsFromFront: 19696 miliseconds
 
 * linked list:
     * addElementsToFront: 14 miliseconds
     * addElementsToBack: 13 miliseconds
     * iterateList: 173924 miliseconds
     * iterateListForEach: 28 miliseconds
+    * deleteElementsFromFront: 16 miliseconds
 
 ### Do których kolekcji można wstawiać wartości null?
 
