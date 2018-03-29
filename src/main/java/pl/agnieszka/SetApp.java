@@ -43,7 +43,10 @@ public class SetApp {
         showSet(treeSet);
         System.out.println();
 
-        TreeSet<String> treeSetComparator = new TreeSet<String>((o1, o2) -> o2.length() - o1.length());
+        TreeSet<String> treeSetComparator = new TreeSet<String>((o1, o2) -> o1.length() - o2.length());
+        System.out.println("TreeSetComparator: ");
+        addToSet(treeSetComparator);
+        showSet(treeSetComparator);
 
         System.out.println();
         LinkedHashSet<String> linkedHashSet = new LinkedHashSet<>();
