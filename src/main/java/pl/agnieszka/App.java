@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 /**
@@ -21,31 +22,33 @@ public class App {
         System.out.println(description + (endTime - startTime) + " miliseconds");
     }
 
+    //metoda z Consumerem dla dwóch parametrów czyli BiConsumer
+    public static void measureTimeForOperation(List<Integer> list, int count, BiConsumer<List<Integer>, Integer> operation,  String description){
+        long startTime = System.currentTimeMillis();
+        operation.accept(list, count);
+        long endTime = System.currentTimeMillis();
+        System.out.println(description + (endTime - startTime) + " miliseconds");
+    }
+
     public static void addElementsToFront(List<Integer> list, int count){
 
-        long startTime = System.currentTimeMillis();
-        int x = r.nextInt();
-        for(int i = 0 ; i < count; i++){
-        list.add(0, x);
-        }
-        long endTime = System.currentTimeMillis();
-        System.out.println("addElementsToFront: " + (endTime - startTime) + " miliseconds");
+        measureTimeForOperation(list, count, new ListFiller(), "addElementsToFront: ");
     }
 
-    public static void addElementsToBack(List<Integer> list, int count){
+    public static void addElementsToBack(List<Integer> list, int count) {
 
-        long startTime = System.currentTimeMillis();
-        int x = r.nextInt();
-        for(int i = 0 ; i < count; i++){
-        list.add(x);
-        }
-        long endTime = System.currentTimeMillis();
-        System.out.println("addElementsToBack: " + (endTime - startTime) + " miliseconds");
+        measureTimeForOperation(list, count, (list1, count1) -> {
+            for (int i = 0; i < count1; i++) {
+                list1.add(i);
+            }
+        }, "addElementsToBack: ");
     }
 
-    //użycie pętli for oraz wywołanie metody liczącej czas wykonania operacji;
-    //metoda ma za parametr interfejs Consumera - powstaje klasa anonimowa
-    public static void iterateList(List<Integer> list){
+
+                //użycie pętli for oraz wywołanie metody liczącej czas wykonania operacji;
+                //metoda ma za parametr interfejs Consumera - powstaje klasa anonimowa
+
+        public static void iterateList(List<Integer> list){
         measureTimeForOperation(list, new Consumer<List<Integer>>() {
             @Override
             public void accept(List<Integer> integers) {

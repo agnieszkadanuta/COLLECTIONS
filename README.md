@@ -79,7 +79,8 @@ chodzi o to, by złożonośc logarytmiczna była jak najmniej złożona*
 
 ### Do których kolekcji można wstawiać wartości null?
 
-Miejsce na odpowiedź
+* Kolekcje, do których można wstawiać null: ArrayList, LinkedList, LinkedHashSet
+* Kolekcje, do których nie można wstawiać null: TreeSet, TreeMap, PriorityQueue
 
 
 ### Napisać operacje wykorzystującą różne implementacje Set i sprawdzić różnice w operacjach dodawania do zbioru
